@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All in One Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>All in One Order</h1>
+        <nav>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('cart')">Cart (<span id="cart-count">0</span>)</button>
+            <button onclick="showPage('login')">Login/Register</button>
+            <button onclick="showPage('admin')">Admin</button>
+            <button id="darkToggle"></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page">
+            <h2>Welcome! Browse Items</h2>
+            <div id="products" class="product-grid"></div>
+        </section>
+
+        <!-- Cart Page -->
+        <section id="cart" class="page" style="display:none;">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <button onclick="checkout()">Checkout</button>
+        </section>
+
+        <!-- Login/Register Page -->
+        <section id="login" class="page" style="display:none;">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+
+            <h3>Or Register</h3>
+            <input type="text" id="reg-username" placeholder="Username">
+            <input type="password" id="reg-password" placeholder="Password">
+            <button onclick="register()">Register</button>
+        </section>
+
+        <!-- Admin Page -->
+        <section id="admin" class="page" style="display:none;">
+            <h2>Admin Panel</h2>
+            <input type="password" id="admin-password" placeholder="Admin Password">
+            <button onclick="adminLogin()">Login as Admin</button>
+            <div id="adminPanel" style="display:none;">
+                <h3>Add New Product</h3>
+                <input type="text" id="new-name" placeholder="Product Name">
+                <input type="text" id="new-category" placeholder="Category">
+                <input type="number" id="new-price" placeholder="Price">
+                <button onclick="addProduct()">Add Product</button>
+
+                <h3>All Products</h3>
+                <div id="admin-products"></div>
+
+                <h3>Orders</h3>
+                <div id="admin-orders"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
